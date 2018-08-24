@@ -4,3 +4,9 @@
     src: cron-daily-certbot-renew.j2
     dest: /etc/cron.daily/certbot-renew
     mode: 0755
+
+- name: Add renewal deploy hooks
+  template:
+    src: letsencrypt-renewal-hooks-deploy-commands.j2
+    dest: /etc/letsencrypt/renewal-hooks/deploy/commands.sh
+    mode: 0755

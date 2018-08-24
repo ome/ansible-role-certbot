@@ -6,6 +6,8 @@ certbot_auto_renew_options: >
   --no-self-upgrade
   {{ certbot_auto_renew_args }}
 certbot_auto_renew_args: ""
+# Post-renewal commands to run, e.g. to restart services
+certbot_auto_renew_deploy_hooks: []
 
 # Parameters used when creating new Certbot certs.
 certbot_create_if_missing: no
