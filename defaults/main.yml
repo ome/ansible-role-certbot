@@ -1,7 +1,9 @@
 ---
 # Certbot auto-renew cron job configuration (for certificate renewals).
 certbot_auto_renew: true
-certbot_auto_renew_options: "--quiet --no-self-upgrade"
+certbot_auto_renew_options: >
+  --quiet
+  --no-self-upgrade
 
 # Parameters used when creating new Certbot certs.
 certbot_create_if_missing: no
@@ -10,7 +12,14 @@ certbot_admin_email: email@example.com
 certbot_domains:
   #     - example1.com
   #     - example2.com
-certbot_create_command: "{{ certbot_script }} certonly --standalone --noninteractive --agree-tos --email {{ certbot_admin_email }} -d {{ certbot_domains | join(',') }}"
+certbot_create_command: >
+  {{ certbot_script }}
+  certonly
+  --standalone
+  --noninteractive
+  --agree-tos
+  --email {{ certbot_admin_email }}
+  -d {{ certbot_domains | join(',') }}
 certbot_create_standalone_stop_services:
   - nginx
   # - apache
