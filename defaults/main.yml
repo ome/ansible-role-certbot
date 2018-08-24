@@ -4,6 +4,8 @@ certbot_auto_renew: true
 certbot_auto_renew_options: >
   --quiet
   --no-self-upgrade
+  {{ certbot_auto_renew_args }}
+certbot_auto_renew_args: ""
 
 # Parameters used when creating new Certbot certs.
 certbot_create_if_missing: no
@@ -20,8 +22,10 @@ certbot_create_command: >
   --agree-tos
   --email {{ certbot_admin_email }}
   -d {{ certbot_domains | join(',') }}
+  {{ certbot_create_args }}
+certbot_create_args: ""
 certbot_create_standalone_stop_services:
-  - nginx
+  # - nginx
   # - apache
   # - varnish
 
