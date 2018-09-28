@@ -1,0 +1,4 @@
+#!/bin/sh
+{% for command in certbot_auto_renew_deploy_hooks %}
+{{ command }}
+{% endfor %}
